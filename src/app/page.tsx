@@ -42,23 +42,20 @@ export default function Home() {
     }
   };
 
-  const Carousel = () => {
-    const carouselRef = useRef<HTMLDivElement | null>(null);
-    const [isPaused, setIsPaused] = useState(false);
-  
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        if (!isPaused && carouselRef.current) {
-          const firstItem = carouselRef.current.querySelector('.carousel-item');
-          if (firstItem) { // Add null check for firstItem
-            carouselRef.current.appendChild(firstItem.cloneNode(true));
-            carouselRef.current.removeChild(firstItem);
-          }
-        }
-      }, 3000);
-  
-      return () => clearInterval(intervalId);
-    }, [isPaused]);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (!isPaused && carouselRef.current) {
+        const firstItem = carouselRef.current.querySelector('.carousel-item') as HTMLDivElement;
+        carouselRef.current.appendChild(firstItem.cloneNode(true));
+        carouselRef.current.removeChild(firstItem);
+      }
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [isPaused]);
 
   return (
     <div className="flex flex-col min-h-screen">

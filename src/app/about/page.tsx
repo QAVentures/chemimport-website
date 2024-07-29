@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function AboutPage() {
+const AboutPage: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-primary mb-8">About ChemImport</h1>
@@ -13,11 +13,17 @@ export default function AboutPage() {
             Founded in 2004, ChemImport has grown from a small local distributor to a leading chemical importer serving clients across the United States. Our journey has been driven by a passion for quality, innovation, and customer satisfaction.
           </p>
           <p>
-            With two decades of experience, we've built strong relationships with global suppliers and local manufacturers, positioning us as a trusted name in the industry.
+            With two decades of experience, we&apos;ve built strong relationships with global suppliers and local manufacturers, positioning us as a trusted name in the industry.
           </p>
         </div>
         <div className="relative h-64 md:h-auto">
-          <Image src="/images/about-image.jpg" alt="ChemImport team" layout="fill" objectFit="cover" className="rounded-lg" />
+          <Image 
+            src="/images/about-image.jpg" 
+            alt="ChemImport team" 
+            layout="fill" 
+            objectFit="cover" 
+            className="rounded-lg"
+          />
         </div>
       </div>
       
@@ -32,4 +38,6 @@ export default function AboutPage() {
       </div>
     </div>
   );
-}
+};
+
+export default AboutPage;

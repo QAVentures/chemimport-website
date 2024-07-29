@@ -1,14 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
+
+interface IFormInputs {
+  email: string;
+}
 
 export default function NewsletterPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = async (data) => {
+  const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     setIsLoading(true);
     try {
       const response = await fetch('/api/newsletter', {
@@ -37,7 +41,7 @@ export default function NewsletterPage() {
       {isSubmitted ? (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
           <h2 className="font-bold text-xl mb-2">Thank you for subscribing!</h2>
-          <p>You've successfully subscribed to the ChemImport newsletter. Check your email for a confirmation message with more details about what to expect.</p>
+          <p>You&apos;ve successfully subscribed to the ChemImport newsletter. Check your email for a confirmation message with more details about what to expect.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-md">
@@ -67,8 +71,8 @@ export default function NewsletterPage() {
         </form>
       )}
             
-            <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-4">What You'll Receive</h2>
+      <div className="mt-8">
+        <h2 className="text-2xl font-semibold mb-4">What You&apos;ll Receive</h2>
         <ul className="list-disc list-inside">
           <li>Monthly industry updates</li>
           <li>Exclusive offers and promotions</li>

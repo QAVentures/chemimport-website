@@ -6,11 +6,28 @@ import { useForm } from 'react-hook-form';
 export default function NewsletterPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    // Here you would typically send the data to your API
-    console.log(data);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Subscription failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -19,7 +36,8 @@ export default function NewsletterPage() {
       
       {isSubmitted ? (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-          Thank you for subscribing to our newsletter!
+          <h2 className="font-bold text-xl mb-2">Thank you for subscribing!</h2>
+          <p>You've successfully subscribed to the ChemImport newsletter. Check your email for a confirmation message with more details about what to expect.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-md">
@@ -39,13 +57,17 @@ export default function NewsletterPage() {
             />
             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </div>
-          <button type="submit" className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">
-            Subscribe
+          <button 
+            type="submit" 
+            className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark disabled:bg-gray-400"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Subscribing...' : 'Subscribe'}
           </button>
         </form>
       )}
-      
-      <div className="mt-8">
+            
+            <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">What You'll Receive</h2>
         <ul className="list-disc list-inside">
           <li>Monthly industry updates</li>

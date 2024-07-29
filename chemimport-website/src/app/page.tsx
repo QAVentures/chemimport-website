@@ -1,11 +1,44 @@
+
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setSubscriptionStatus('success');
+        setEmail('');
+      } else {
+        throw new Error('Subscription failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setSubscriptionStatus('error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div>
       {/* Hero Section */}
       <section className="bg-[#F5F7FA] py-20">
+        {/* ... (Hero section content remains the same) ... */}
         <div className="container mx-auto px-4 flex items-center">
           <div className="w-1/2">
             <h1 className="text-4xl font-bold text-[#1E5C9B] mb-4">Your Trusted Chemical Importer</h1>
@@ -21,7 +54,8 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-20">
+        {/* ... (Featured Products section content remains the same) ... */}
+        <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#1E5C9B] mb-8">Featured Products</h2>
           <div className="grid grid-cols-4 gap-8">
@@ -38,6 +72,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="bg-[#F5F7FA] py-20">
+        {/* ... (Services section content remains the same) ... */}
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#1E5C9B] mb-8">Our Services</h2>
           <div className="grid grid-cols-3 gap-8">
@@ -56,6 +91,7 @@ export default function Home() {
 
       {/* About Us Preview */}
       <section className="py-20">
+        {/* ... (About Us Preview section content remains the same) ... */}
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#1E5C9B] mb-4">About Us</h2>
           <p className="text-xl mb-8">With over 20 years of experience, we provide top-quality chemicals and expert consulting services.</p>
@@ -70,12 +106,35 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Stay Informed</h2>
           <p className="text-xl mb-8">Subscribe to our newsletter for the latest chemical industry updates and exclusive offers.</p>
-          <form className="flex">
-            <input type="email" placeholder="Enter your email address" className="flex-grow p-3 rounded-l-full" />
-            <button type="submit" className="bg-[#4CAF50] px-6 py-3 rounded-r-full text-lg font-semibold hover:bg-green-600 transition duration-300">
-              Subscribe
-            </button>
-          </form>
+          {subscriptionStatus === 'success' ? (
+            <div className="bg-green-500 text-white px-4 py-3 rounded">
+              <p className="font-bold">Thank you for subscribing!</p>
+              <p>Check your email for a confirmation message.</p>
+            </div>
+          ) : subscriptionStatus === 'error' ? (
+            <div className="bg-red-500 text-white px-4 py-3 rounded">
+              <p className="font-bold">Oops! Something went wrong.</p>
+              <p>Please try again later or contact us for assistance.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubscribe} className="flex">
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address" 
+                className="flex-grow p-3 rounded-l-full text-gray-800" 
+                required
+              />
+              <button 
+                type="submit" 
+                className="bg-[#4CAF50] px-6 py-3 rounded-r-full text-lg font-semibold hover:bg-green-600 transition duration-300 disabled:bg-gray-400"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </form>
+          )}
         </div>
       </section>
     </div>

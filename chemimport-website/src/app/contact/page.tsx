@@ -6,11 +6,28 @@ import { useForm } from 'react-hook-form';
 export default function ContactPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
-    // Here you would typically send the data to your API
-    console.log(data);
-    setIsSubmitted(true);
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Message sending failed');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Message sending failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -21,7 +38,9 @@ export default function ContactPage() {
         <div>
           {isSubmitted ? (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-              Thank you for your message. We'll get back to you soon!
+              <h2 className="font-bold text-xl mb-2">Thank you for your message!</h2>
+              <p>We've received your inquiry and appreciate you reaching out. Our team will review your message and get back to you as soon as possible, typically within 1-2 business days.</p>
+              <p className="mt-2">Please check your email for a confirmation of your submission.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -59,8 +78,12 @@ export default function ContactPage() {
                 ></textarea>
                 {errors.message && <p className="text-red-500">{errors.message.message}</p>}
               </div>
-              <button type="submit" className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">
-                Send Message
+              <button 
+                type="submit" 
+                className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark disabled:bg-gray-400"
+                disabled={isLoading}
+              >
+                {isLoading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           )}

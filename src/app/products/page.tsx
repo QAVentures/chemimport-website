@@ -4,6 +4,7 @@ import React, { useState, useEffect} from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 const productCategories = [
   {
@@ -76,6 +77,19 @@ const productCategories = [
 
 
 export default function ProductsPage() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-primary mb-8">Our Products</h1>
+      
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductContent />
+      </Suspense>
+    </div>
+  );
+}
+
+
+function ProductContent() {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState(productCategories[0]);
 
@@ -91,7 +105,7 @@ export default function ProductsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-primary mb-8">Our Products</h1>
+      <h1 className="grid grid-cols-1 md:grid-cols-2 gap-8">Our Products</h1>
       
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar */}

@@ -3,6 +3,7 @@
 import React, { useState , useRef , useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const productCategories = [
   { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/bulk-chemicals-home.jpeg" },
@@ -14,6 +15,7 @@ const productCategories = [
 ];
 
 export default function Home() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -57,7 +59,10 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, [isPaused]);
 
-  return (
+  const handleProductClick = (category: string) => {
+    router.push(`/products?category=${encodeURIComponent(category)}`);
+  };return (
+    
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
     <section className="hero bg-base-200 py-10 md:py-20">
@@ -68,15 +73,15 @@ export default function Home() {
           <p className="py-6">
             Connecting you with top manufacturers in Specialty, Organic, Inorganic, Agro Chemicals, Cosmetics, Construction Chemicals, and Nutraceuticals. Providing innovative solutions and quality products to meet your industry needs.
           </p>
-          <Link href="/products" className="btn btn-primary">Explore Our Products</Link>
+          <Link href="/products" className="btn bg-primary text-white hover:bg-primary-dark">Explore Our Products</Link>
         </div>
       </div>
     </section>
 
-      {/* Product Categories Section */}
-      <section className="py-10 md:py-20">
+      {/* Updated Product Categories Section */}
+      <section className="bg-gray-200 py-10 md:py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Our Chemical Portfolio</h2>
+          <h2 className="text-3xl font-bold text-primary mb-8">Our Chemical Portfolio</h2>
           <div 
             ref={carouselRef}
             className="carousel carousel-center w-full p-4 space-x-4 bg-neutral rounded-box mx-auto"
@@ -99,12 +104,12 @@ export default function Home() {
                     <h2 className="card-title text-lg">{category.name}</h2>
                     <p className="text-sm">{category.subtext}</p>
                     <div className="card-actions justify-end mt-2">
-                      <Link 
-                        href={`/products/${category.name.toLowerCase().replace(/\s+/g, '-')}`} 
+                      <button 
+                        onClick={() => handleProductClick(category.name)}
                         className="btn btn-primary btn-sm"
                       >
                         Explore
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -114,38 +119,79 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Services Section */}
-      <section className="bg-base-200 py-10 md:py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {['Chemical Importing', 'Consulting Services', 'Industry Newsletter'].map((service, index) => (
-              <div key={index} className="card bg-base-100 shadow-xl">
-                <div className="card-body">
-                  <h2 className="card-title">{service}</h2>
-                  <p>Brief description of the service and its benefits.</p>
-                  <div className="card-actions justify-end">
-                    <Link href={`/services#${service.toLowerCase().replace(' ', '-')}`} className="btn btn-primary">Learn More</Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+{/* Services Section */}
+<section className="bg-base-200 py-10 md:py-20">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-8">Our Comprehensive Services</h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          title: 'Global Chemical Sourcing',
+          description: 'Leveraging our international network to source high-quality specialty chemicals from trusted manufacturers worldwide.',
+          icon: '🌍'
+        },
+        {
+          title: 'Supply Chain Optimization',
+          description: 'Streamlining your chemical supply chain for efficiency, cost-effectiveness, and reliability.',
+          icon: '⚙️'
+        },
+        {
+          title: 'Custom Formulations',
+          description: 'Developing tailored chemical solutions to meet your specific industry requirements and challenges.',
+          icon: '🧪'
+        },
+        {
+          title: 'Regulatory Compliance Consulting',
+          description: 'Navigating the complex landscape of chemical regulations to ensure your operations remain compliant.',
+          icon: '📋'
+        },
+        {
+          title: 'Logistics Management',
+          description: 'Coordinating the transportation and storage of chemicals with utmost care for safety and efficiency.',
+          icon: '🚚'
+        },
+        {
+          title: 'Industry Consulting',
+          description: 'Providing expert insights and strategies to help your business thrive in the ever-evolving chemical industry.',
+          icon: '💼'
+        }
+      ].map((service, index) => (
+        <div key={index} className="card bg-base-100 shadow-xl">
+          <div className="card-body">
+            <div className="text-4xl mb-4">{service.icon}</div>
+            <h3 className="card-title">{service.title}</h3>
+            <p>{service.description}</p>
+            <div className="card-actions justify-end">
+              <Link href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`} className="btn btn-primary btn-sm">Learn More</Link>
+            </div>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
-      {/* About Us Preview */}
-      <section className="py-10 md:py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">About Us</h2>
-          <p className="text-xl mb-8">With over 20 years of experience, we provide top-quality chemicals and expert consulting services.</p>
-          <Link href="/about" className="btn btn-primary">Learn More</Link>
+{/* About Us Preview */}
+<section className="py-10 md:py-20">
+  <div className="container mx-auto px-4 text-center">
+    <h2 className="text-3xl font-bold mb-4">About KSY Group LLC</h2>
+    <p className="text-xl mb-8">
+      Born from insight during the 2020 pandemic, KSY Group LLC has rapidly grown into a trusted name in global chemical distribution. Our journey is driven by a commitment to quality, innovation, and unparalleled customer satisfaction.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+      {['Trust', 'Expertise', 'Agility', 'Quality'].map((value, index) => (
+        <div key={index} className="bg-base-100 p-4 rounded-lg shadow">
+          <h3 className="font-bold text-lg mb-2">{value}</h3>
+          <p className="text-sm">Core values that define our approach to business and customer relationships.</p>
         </div>
-      </section>
+      ))}
+    </div>
+    <Link href="/about" className="btn btn-primary">Discover Our Story</Link>
+  </div>
+</section>
 
       {/* Newsletter Signup */}
-      <section className="bg-primary text-primary-content py-10 md:py-20">
+      <section className="bg-primary text-white py-10 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Stay Informed</h2>
           <p className="text-xl mb-8 text-center">Subscribe to our newsletter for the latest chemical industry updates and exclusive offers.</p>

@@ -7,9 +7,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#1E5C9B',
-        secondary: '#4CAF50',
-        accent: '#FFC107',
+        primary: '#6B46C1', // Purple
+        secondary: '#9F7AEA', // Light Purple
+        accent: '#ED64A6', // Pink
+        neutral: '#1F2937', // Dark Gray
+      },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
       },
     },
   },

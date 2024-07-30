@@ -37,6 +37,14 @@ export default function Footer() {
           <Link href="/newsletter" className="link link-hover">Newsletter</Link>
         </div> 
         <div>
+          <span className="footer-title">Industry</span> 
+          <Link href="/" className="link link-hover">Agriculture</Link>
+          <Link href="/about" className="link link-hover">About us</Link>
+          <Link href="/services" className="link link-hover">Services</Link>
+          <Link href="/contact" className="link link-hover">Contact</Link>
+          <Link href="/newsletter" className="link link-hover">Newsletter</Link>
+        </div> 
+        <div>
           <span className="footer-title">Legal</span> 
           <Link href="/terms" className="link link-hover">Terms of use</Link>
           <Link href="/privacy" className="link link-hover">Privacy policy</Link>

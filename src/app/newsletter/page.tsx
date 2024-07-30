@@ -178,7 +178,7 @@ export default function NewsletterPage() {
       )}
 
       <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-4">What You'll Receive</h2>
+        <h2 className="text-2xl font-semibold mb-4">What You&apos;ll Receive</h2>
         <ul className="list-disc list-inside">
           <li>Monthly industry updates</li>
           <li>Exclusive offers and promotions</li>

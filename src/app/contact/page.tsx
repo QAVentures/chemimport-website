@@ -154,7 +154,7 @@ export default function ContactPage() {
             <h3 className="font-bold text-lg mb-2">What documents are required to understand the quality of the product?</h3>
             <p>To ensure our customers have a comprehensive understanding of our product quality, we provide several key documents:</p>
             <ul className="list-disc list-inside mt-2">
-              <li>Certificate of Analysis (COA): Details the product's composition and purity</li>
+              <li>Certificate of Analysis (COA): Details the products composition and purity</li>
               <li>Safety Data Sheet (SDS): Outlines safety precautions, handling procedures, and potential hazards</li>
               <li>Technical Data Sheet (TDS): Provides specifications and performance characteristics</li>
             </ul>
@@ -216,7 +216,7 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h3 className="font-bold text-lg mb-2">What's the best way to reach us?</h3>
+            <h3 className="font-bold text-lg mb-2">Whats the best way to reach us?</h3>
             <p>We value clear and efficient communication with our customers. The most effective ways to reach us are:</p>
             <ul className="list-disc list-inside mt-2">
               <li>Phone: For immediate assistance, call us at (123) 456-7890 during business hours</li>

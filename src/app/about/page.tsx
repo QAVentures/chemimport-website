@@ -106,7 +106,7 @@ const AboutPage: React.FC = () => {
       <section className="bg-gray-100 p-8 rounded-lg mb-16">
         <h2 className="text-3xl font-semibold mb-6 text-center">Our Commitment to Excellence</h2>
         <p className="text-lg mb-4">
-          At KSY Group LLC, we understand that in the world of chemical distribution, precision and reliability are paramount. That's why we've built our reputation on:
+          At KSY Group LLC, we understand that in the world of chemical distribution, precision and reliability are paramount. That&apos;s why we&apos;ve built our reputation on:
         </p>
         <ul className="list-disc list-inside mb-4 text-lg">
           <li>Meticulous documentation and record-keeping</li>

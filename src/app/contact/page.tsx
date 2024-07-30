@@ -68,7 +68,7 @@ export default function ContactPage() {
           {isSubmitted ? (
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
               <h2 className="font-bold text-xl mb-2">Thank you for your message!</h2>
-              <p>We've received your inquiry and appreciate you reaching out. Our team will review your message and get back to you as soon as possible, typically within 1-2 business days.</p>
+              <p>We&apos;ve received your inquiry and appreciate you reaching out. Our team will review your message and get back to you as soon as possible, typically within 1-2 business days.</p>
               <p className="mt-2">Please check your email for a confirmation of your submission.</p>
             </div>
           ) : (

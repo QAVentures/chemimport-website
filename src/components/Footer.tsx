@@ -36,13 +36,13 @@ export default function Footer() {
           <Link href="/contact" className="link link-hover">Contact</Link>
           <Link href="/newsletter" className="link link-hover">Newsletter</Link>
         </div> 
-        <div>
+        <div>   
           <span className="footer-title">Industry</span> 
-          <Link href="/" className="link link-hover">Agriculture</Link>
-          <Link href="/about" className="link link-hover">About us</Link>
-          <Link href="/services" className="link link-hover">Services</Link>
-          <Link href="/contact" className="link link-hover">Contact</Link>
-          <Link href="/newsletter" className="link link-hover">Newsletter</Link>
+          <Link href="/" className="link link-hover">Inorganic Chemicals</Link>
+          <Link href="/about" className="link link-hover">Agro Chemicals</Link>
+          <Link href="/services" className="link link-hover">Cosmetic Chemicals</Link>
+          <Link href="/contact" className="link link-hover">Construction Chemicals</Link>
+          <Link href="/newsletter" className="link link-hover">Nutraceuticals</Link>
         </div> 
         <div>
           <span className="footer-title">Legal</span> 

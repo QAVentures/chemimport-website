@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -15,11 +15,24 @@ const productCategories = [
 export default function Header() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
   const handleProductClick = (category: string) => {
     router.push(`/products?category=${encodeURIComponent(category)}`);
     setIsOpen(false);
   };
+
+  // Close dropdown when clicking outside of it
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div className="navbar bg-purple-700 text-white">
@@ -29,7 +42,7 @@ export default function Header() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
           {isOpen && (
-            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-purple-800 rounded-box w-52">
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-purple-800 rounded-box w-64" ref={dropdownRef}>
               <li><Link href="/" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Home</Link></li>
               <li>
                 <a className="text-white hover:bg-purple-600">Products</a>
@@ -54,7 +67,7 @@ export default function Header() {
           <li tabIndex={0}>
             <details>
               <summary className="text-white hover:bg-purple-600">Products</summary>
-              <ul className="p-2 bg-purple-800 rounded-t-none">
+              <ul className="p-2 bg-purple-800 rounded-t-none w-64">
                 {productCategories.map((category, index) => (
                   <li key={index}><a onClick={() => handleProductClick(category)} className="text-white hover:bg-purple-600">{category}</a></li>
                 ))}
@@ -67,8 +80,10 @@ export default function Header() {
           <li><Link href="/contact" className="text-white hover:bg-purple-600">Contact</Link></li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <Link href="/contact" className="btn btn-ghost text-white hover:bg-purple-600">Get a Quote</Link>
+      <div className="navbar-end flex items-center space-x-4">
+        <div className="flex items-center mr-auto">
+        <Link href="/contact" className="btn btn-ghost text-white border border-white rounded-full px-4 py-2 hover:bg-purple-600">Get a Quote</Link>
+        </div>
       </div>
     </div>
   );

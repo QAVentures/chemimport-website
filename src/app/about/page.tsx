@@ -74,16 +74,16 @@ const AboutPage: React.FC = () => {
       </div>
 
       <h2 className="text-3xl font-semibold mb-8 text-center">Meet Our Leadership Team</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className="flex flex-wrap justify-center gap-12 mb-16">
         {teamMembers.map((member, index) => (
-          <div key={index} className="text-center">
-            <div className="relative w-48 h-48 mx-auto mb-4">
+          <div key={index} className="w-full sm:w-80 md:w-64 bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+            <div className="relative w-32 h-32 mx-auto mb-4">
               <Image 
                 src={member.image} 
                 alt={member.name} 
                 layout="fill" 
                 objectFit="cover" 
-                className="rounded-full"
+                className="rounded-full border-4 border-primary"
               />
             </div>
             <h3 className="text-xl font-semibold mb-2">{member.name}</h3>

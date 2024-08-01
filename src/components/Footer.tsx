@@ -70,7 +70,7 @@ export default function Footer() {
         </div> 
         <div className="md:place-self-center md:justify-self-end">
           <p>123 Chemical Lane, Molecule City, CH 12345</p>
-          <p>Email: info@ksygroup.com | Phone: (123) 456-7890</p>
+          <p>Email: info@ksygroup.com | Phone: (669) 243-7152</p>
           <p>&copy; 2024 KSY Group LLC. All rights reserved.</p>
         </div>
       </div>

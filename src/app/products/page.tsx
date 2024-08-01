@@ -110,10 +110,10 @@ function ProductContent() {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Sidebar */}
         <div className="w-full md:w-1/4">
-          <ul className="menu bg-base-800 w-full rounded-box">
+          <ul className="menu bg-base-200 w-full rounded-box">
             {productCategories.map((category, index) => (
               <li key={index}>
-                <a className=""
+                <a 
                   onClick={() => setSelectedCategory(category)}
                   className={selectedCategory.name === category.name ? "active" : ""}
                 >

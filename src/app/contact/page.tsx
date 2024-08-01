@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 interface IFormInputs {
   name: string;
@@ -23,6 +24,16 @@ const productCategories = [
   "Construction Chemicals",
   "Nutraceuticals"
 ];
+
+const mapContainerStyle = {
+  height: "400px",
+  width: "100%"
+};
+
+const center = {
+  lat: 37.7749, // Replace with your latitude
+  lng: -122.4194 // Replace with your longitude
+};
 
 export default function ContactPage() {
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>();
@@ -54,7 +65,6 @@ export default function ContactPage() {
   };
 
   const onSubmitSDS: SubmitHandler<ISDSFormInputs> = async (data) => {
-    // Handle SDS form submission
     console.log('SDS form submitted:', data);
     // You can add the actual submission logic here
   };
@@ -62,7 +72,7 @@ export default function ContactPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-primary mb-8">Contact Us</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           {isSubmitted ? (
@@ -139,12 +149,21 @@ export default function ContactPage() {
           <p className="mb-2"><strong>Phone:</strong> (123) 456-7890</p>
           <p className="mb-2"><strong>Email:</strong> info@chemimport.com</p>
           <p className="mb-4"><strong>Business Hours:</strong> Monday - Friday: 9am - 5pm</p>
-          <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-            <p className="text-gray-600">Map placeholder</p>
-          </div>
+          
+          {/* Google Map */}
+          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              center={center}
+              zoom={10}
+            >
+              {/* You can add markers or other components here */}
+            </GoogleMap>
+          </LoadScript>
         </div>
       </div>
 
+      
       {/* FAQ Section */}
       <div className="mt-12">
         <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
@@ -242,3 +261,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

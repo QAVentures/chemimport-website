@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const productCategories = [
-  { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/bulk-chemicals-home.jpeg" },
+  { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/organic-chemicals.jpeg" },
   { name: "Inorganic Chemicals", subtext: "Mineral-based chemicals for industrial use", image: "/images/inorganic-chemicals.jpg" },
   { name: "Agro Chemicals", subtext: "Enhancing agricultural productivity and crop protection", image: "/images/agro-chemicals.jpg" },
   { name: "Cosmetic Chemicals", subtext: "Innovative solutions for personal care products", image: "/images/cosmetic-chemicals.jpg" },
   { name: "Construction Chemicals", subtext: "Improving durability and performance in building materials", image: "/images/construction-chemicals.jpg" },
-  { name: "Nutraceuticals", subtext: "Health-promoting compounds for dietary supplements", image: "/images/nutracuticals.jpg" }
+  { name: "Nutraceuticals", subtext: "Health-promoting compounds for dietary supplements", image: "/images/nutraceuticals.jpg" }
 ];
 
 export default function Home() {

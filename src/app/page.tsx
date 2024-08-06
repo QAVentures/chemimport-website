@@ -6,13 +6,33 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const productCategories = [
-  { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/bulk-chemicals-home.jpeg" },
+  { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/organic-chemicals.jpeg" },
   { name: "Inorganic Chemicals", subtext: "Mineral-based chemicals for industrial use", image: "/images/inorganic-chemicals.jpg" },
   { name: "Agro Chemicals", subtext: "Enhancing agricultural productivity and crop protection", image: "/images/agro-chemicals.jpg" },
   { name: "Cosmetic Chemicals", subtext: "Innovative solutions for personal care products", image: "/images/cosmetic-chemicals.jpg" },
   { name: "Construction Chemicals", subtext: "Improving durability and performance in building materials", image: "/images/construction-chemicals.jpg" },
-  { name: "Nutraceuticals", subtext: "Health-promoting compounds for dietary supplements", image: "/images/nutracuticals.jpg" }
+  { name: "Nutraceuticals", subtext: "Health-promoting compounds for dietary supplements", image: "/images/nutraceuticals.jpg" }
 ];
+
+const coreValues = [
+  {
+    title: 'Trust',
+    description: 'Built on a foundation of integrity, our partnerships are characterized by transparency, reliability, and a deep commitment to our clients’ success.'
+  },
+  {
+    title: 'Expertise',
+    description: 'Our team’s unparalleled knowledge and industry experience enable us to deliver innovative solutions tailored to the unique challenges of our clients.'
+  },
+  {
+    title: 'Agility',
+    description: 'In a rapidly evolving industry, we pride ourselves on our ability to adapt swiftly and efficiently, ensuring we meet the dynamic needs of our clients.'
+  },
+  {
+    title: 'Quality',
+    description: 'We adhere to the highest standards of excellence, ensuring that every product we deliver meets rigorous quality benchmarks and exceeds customer expectations.'
+  }
+];
+
 
 export default function Home() {
   const router = useRouter();
@@ -70,8 +90,8 @@ export default function Home() {
         <Image src="/images/hero-image.jpg" alt="Chemical lab" width={600} height={400} className="max-w-sm rounded-lg shadow-2xl" />
         <div>
           <h1 className="text-5xl font-bold">Your Global Partner in Chemical Distribution</h1>
-          <p className="py-6">
-            Connecting you with top manufacturers in Specialty, Organic, Inorganic, Agro Chemicals, Cosmetics, Construction Chemicals, and Nutraceuticals. Providing innovative solutions and quality products to meet your industry needs.
+          <p className="text-xl mb-12 text-left">
+            At KSY Group, we are committed to providing unparalleled access to a comprehensive range of chemicals that cater to the diverse needs of industries worldwide. Explore our extensive portfolio, where innovation meets excellence.
           </p>
           <Link href="/products" className="btn bg-primary text-white hover:bg-primary-dark">Explore Our Products</Link>
         </div>
@@ -120,7 +140,7 @@ export default function Home() {
       </section>
 
 {/* Services Section */}
-<section className="bg-base-200 py-10 md:py-20">
+{/* <section className="bg-base-200 py-10 md:py-20">
   <div className="container mx-auto px-4">
     <h2 className="text-3xl font-bold text-center mb-8">Our Comprehensive Services</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -169,22 +189,24 @@ export default function Home() {
       ))}
     </div>
   </div>
-</section>
+</section> */}
+
+
 
 {/* About Us Preview */}
 <section className="py-10 md:py-20">
   <div className="container mx-auto px-4 text-center">
     <h2 className="text-3xl font-bold mb-4">About KSY Group LLC</h2>
     <p className="text-xl mb-8">
-      Born from insight during the 2020 pandemic, KSY Group LLC has rapidly grown into a trusted name in global chemical distribution. Our journey is driven by a commitment to quality, innovation, and unparalleled customer satisfaction.
+      Founded amidst the challenges of the 2020 global pandemic, KSY Group LLC has swiftly emerged as a leader in the world of chemical distribution. Our journey is rooted in a visionary approach, driven by a steadfast commitment to delivering quality, fostering innovation, and achieving unparalleled customer satisfaction. As a trusted partner to industries worldwide, we pride ourselves on offering a comprehensive portfolio of chemicals that meet the highest standards of excellence.
     </p>
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-      {['Trust', 'Expertise', 'Agility', 'Quality'].map((value, index) => (
-        <div key={index} className="bg-base-100 p-4 rounded-lg shadow">
-          <h3 className="font-bold text-lg mb-2">{value}</h3>
-          <p className="text-sm">Core values that define our approach to business and customer relationships.</p>
-        </div>
-      ))}
+          {coreValues.map((value, index) => (
+            <div key={index} className="bg-base-100 p-4 rounded-lg shadow">
+              <h3 className="font-bold text-lg mb-2">{value.title}</h3>
+              <p className="text-sm">{value.description}</p>
+            </div>
+          ))}
     </div>
     <Link href="/about" className="btn btn-primary">Discover Our Story</Link>
   </div>

@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <div>
       {/* Updated contact section with 30px height and no padding */}
-      <div className="header-top bg-white text-purple-700 h-[30px] flex items-center">
+      {/* <div className="header-top bg-white text-purple-700 h-[30px] flex items-center">
         <div className="container-fluid p-0">
           <div className="row align-items-center h-full">
             <div className="col-md-6">
@@ -62,45 +62,51 @@ export default function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Navbar */}
-      <div className="navbar bg-purple-700 text-white">
-        <div className="navbar-start">
-          <header className="header_section">
-            <div className="header_bottom">
-              <div className="container-fluid">
-                <nav className="navbar navbar-expand-lg custom_nav-container">
-                  <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-                      </svg>
-                    </label>
-                    {isOpen && (
-                      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-purple-800 rounded-box w-64" ref={dropdownRef}>
-                        <li><Link href="/" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Home</Link></li>
-                        <li>
-                          <a className="text-white hover:bg-purple-600">Products</a>
-                          <ul className="p-2 bg-purple-800">
-                            {productCategories.map((category, index) => (
-                              <li key={index}><a onClick={() => handleProductClick(category)} className="text-white hover:bg-purple-600">{category}</a></li>
-                            ))}
-                          </ul>
-                        </li>
-                        <li><Link href="/services" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Services</Link></li>
-                        <li><Link href="/about" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">About</Link></li>
-                        <li><Link href="/newsletter" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Newsletter</Link></li>
-                        <li><Link href="/contact" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Contact</Link></li>
-                      </ul>
-                    )}
-                  </div>
-                  <Link href="/" className="btn btn-ghost normal-case text-xl">KSY Group LLC</Link>
-                </nav>
-              </div>
+      <div className="navbar bg-purple-400 text-white" style={{ height: '75px' }}>
+      <div className="navbar-start">
+        <header className="header_section">
+          <div className="header_bottom">
+            <div className="container-fluid">
+              <nav className="navbar navbar-expand-lg custom_nav-container">
+                <div className="dropdown">
+                  <label tabIndex={0} className="btn btn-ghost lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                  </label>
+                  {isOpen && (
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-purple-800 rounded-box w-64" ref={dropdownRef}>
+                      <li><Link href="/" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Home</Link></li>
+                      <li>
+                        <a className="text-white hover:bg-purple-600">Products</a>
+                        <ul className="p-2 bg-purple-800">
+                          {productCategories.map((category, index) => (
+                            <li key={index}><a onClick={() => handleProductClick(category)} className="text-white hover:bg-purple-600">{category}</a></li>
+                          ))}
+                        </ul>
+                      </li>
+                      <li><Link href="/services" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Services</Link></li>
+                      <li><Link href="/about" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">About</Link></li>
+                      <li><Link href="/newsletter" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Newsletter</Link></li>
+                      <li><Link href="/contact" onClick={() => setIsOpen(false)} className="text-white hover:bg-purple-600">Contact</Link></li>
+                    </ul>
+                  )}
+                </div>
+                <div className="flex justify-center items-center py-4">
+                  <a href="/" className="block">
+                    <img src="/images/KSYLogo.png" alt="Your Website Logo" style={{marginRight: '10px', width: '60px', height: '60px' }} />
+                  </a>
+                </div>
+                <Link href="/" className="btn btn-ghost normal-case text-xl">KSY Group</Link>
+              </nav>
             </div>
-          </header>
-        </div>
+          </div>
+        </header>
+      </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link href="/" className="text-white hover:bg-purple-600">Home</Link></li>

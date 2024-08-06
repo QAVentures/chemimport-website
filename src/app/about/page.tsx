@@ -2,28 +2,47 @@ import React from 'react';
 import Image from 'next/image';
 import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
+const coreValues = [
+  {
+    title: 'Trust',
+    description: 'Built on a foundation of integrity, our partnerships are characterized by transparency, reliability, and a deep commitment to our clients’ success.'
+  },
+  {
+    title: 'Expertise',
+    description: 'Our team’s unparalleled knowledge and industry experience enable us to deliver innovative solutions tailored to the unique challenges of our clients.'
+  },
+  {
+    title: 'Agility',
+    description: 'In a rapidly evolving industry, we pride ourselves on our ability to adapt swiftly and efficiently, ensuring we meet the dynamic needs of our clients.'
+  },
+  {
+    title: 'Quality',
+    description: 'We adhere to the highest standards of excellence, ensuring that every product we deliver meets rigorous quality benchmarks and exceeds customer expectations.'
+  }
+];
+
 const teamMembers = [
   {
-    name: "Kathan",
+    name: "Kathan Patel",
     role: "Head of Business Development",
-    image: "/images/kathan.jpg",
-    linkedin: "https://www.linkedin.com/in/kathan",
+    image: "/images/kathan.jpeg",    
+    linkedin: "https://www.linkedin.com/in/kkp244/",
     twitter: "https://twitter.com/kathan",
     email: "kathan@ksygroup.com"
   },
   {
-    name: "Shivam",
+    name: "Shivam Patel",
     role: "Head of Marketing",
-    image: "/images/shivam.jpg",
-    linkedin: "https://www.linkedin.com/in/shivam",
+    image: "/images/shivam.jpeg",
+    linkedin: "https://www.linkedin.com/in/shivammpatel/",
     twitter: "https://twitter.com/shivam",
     email: "shivam@ksygroup.com"
   },
   {
-    name: "Yash",
+    name: "Yash Patel",
     role: "Head of Analytics",
-    image: "/images/yash.jpg",
-    linkedin: "https://www.linkedin.com/in/yash",
+    image: "/images/yash.jpeg",
+    linkedin: "https://www.linkedin.com/in/yash-patel-0b561b138/",
     twitter: "https://twitter.com/yash",
     email: "yash@ksygroup.com"
   }
@@ -36,16 +55,19 @@ const AboutPage: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
         <div>
-          <h2 className="text-3xl font-semibold mb-6">Our Story</h2>
-          <p className="mb-4 text-lg">
-            Born from insight and forged in adversity, KSY Group LLC emerged during the tumultuous pandemic of 2020. As the world grappled with unprecedented supply chain disruptions, our founders saw not just challenges, but opportunities to revolutionize chemical distribution on a global scale.
-          </p>
-          <p className="mb-4 text-lg">
-            The Suez Canal blockage in subsequent years only reinforced our vision: the world needed a more resilient, adaptable, and innovative approach to chemical sourcing and distribution. KSY Group LLC was poised to answer that call.
-          </p>
-          <p className="text-lg">
-            Today, we stand as a testament to perseverance, expertise, and unwavering commitment to quality. While we currently focus on sourcing from India and importing to the US, our sights are set on a broader horizon - building a truly global presence in the chemical distribution landscape.
-          </p>
+        <h2 className="text-3xl font-semibold mb-6">Our Story</h2>
+        <p className="mb-4 text-lg">
+          KSY Group LLC was established amid the global disruptions of the 2020 pandemic, emerging as a pivotal player in the chemical distribution sector. As the world faced unprecedented supply chain challenges, our founders recognized not merely obstacles but opportunities to redefine the landscape of chemical distribution on a global scale.
+        </p>
+        <p className="mb-4 text-lg">
+          The subsequent Suez Canal blockage further underscored the necessity for a more resilient, adaptable, and innovative approach to chemical sourcing and distribution. KSY Group LLC responded to this imperative, positioning itself as a forward-thinking leader equipped to address the evolving demands of the industry.
+        </p>
+        <p className="text-lg">
+          At present, we stand as a testament to resilience, expertise, and unwavering dedication to quality. Our operations are concentrated on sourcing from India and importing to the United States. However, our ambitions are far-reaching. We are committed to expanding our product portfolio and extending our geographic reach, with the goal of establishing a truly global presence in the chemical distribution arena.
+        </p>
+        <p className="text-lg">
+          Looking forward, we anticipate enhancing our offerings by incorporating a broader array of products and extending our operations to additional countries. Our commitment to adaptation and innovation remains steadfast, ensuring we continue to meet the dynamic needs of our international clientele.
+        </p>
         </div>
         <div className="relative h-96 md:h-auto">
           <Image 
@@ -60,17 +82,13 @@ const AboutPage: React.FC = () => {
       
       <h2 className="text-3xl font-semibold mb-8 text-center">Our Core Values</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-        {[
-          { title: 'Trust', description: 'We build lasting relationships based on transparency and reliability.' },
-          { title: 'Expertise', description: 'Our team brings deep industry knowledge and innovative solutions to every challenge.' },
-          { title: 'Agility', description: 'We adapt quickly to market changes, ensuring uninterrupted supply for our clients.' },
-          { title: 'Quality', description: 'We maintain rigorous standards in all aspects of our operations, from sourcing to delivery.' }
-        ].map((value, index) => (
-          <div key={index} className="border rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
-            <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-            <p className="text-gray-600">{value.description}</p>
-          </div>
-        ))}
+          {
+            coreValues.map((value, index) => (
+            <div key={index} className="border rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
+              <h3 className="text-lg font-semibold mb-3">{value.title}</h3>
+              <p className="text-gray-600">{value.description}</p>
+            </div>
+          ))}
       </div>
 
       <h2 className="text-3xl font-semibold mb-8 text-center">Meet Our Leadership Team</h2>

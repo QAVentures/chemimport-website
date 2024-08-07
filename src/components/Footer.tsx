@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import PrivacyPolicy from '@/components/PrivacyPolicy';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const productCategories = [
@@ -11,7 +12,6 @@ const productCategories = [
   "Construction Chemicals",
   "Nutraceuticals"
 ];
-
 export default function Footer() {
   return (
     <footer className="bg-primary text-primary-content p-10">
@@ -37,11 +37,17 @@ export default function Footer() {
           <Link href="/newsletter" className="link link-hover">Newsletter</Link>
         </div>
         <div className="flex-1">
-          <span className="footer-title">Legal</span>
-          <Link href="/terms" className="link link-hover">Terms of use</Link>
-          <Link href="/privacy" className="link link-hover">Privacy policy</Link>
-          <Link href="/cookie-policy" className="link link-hover">Cookie policy</Link>
-        </div>
+      <span className="footer-title">Legal</span>
+      <Link href="/legal/termsOfUse" className="link link-hover" target="_blank" rel="noopener noreferrer">
+        Terms of use
+      </Link>
+      <Link href="/legal/privacyPolicy" className="link link-hover" target="_blank" rel="noopener noreferrer">
+        Privacy Policy
+      </Link>
+      <Link href="/legal/cookiePolicy" className="link link-hover" target="_blank" rel="noopener noreferrer">
+        Cookie Policy
+      </Link>
+</div>
       </div>
 
       <div className="footer container mx-auto mt-10 pt-10 border-t border-primary-content flex flex-col md:flex-row justify-between items-center">

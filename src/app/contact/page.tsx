@@ -149,20 +149,8 @@ export default function ContactPage() {
           <p className="mb-2"><strong>Phone:</strong> (123) 456-7890</p>
           <p className="mb-2"><strong>Email:</strong> info@chemimport.com</p>
           <p className="mb-4"><strong>Business Hours:</strong> Monday - Friday: 9am - 5pm</p>
-          
-          {/* Google Map */}
-          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-            <GoogleMap
-              mapContainerStyle={mapContainerStyle}
-              center={center}
-              zoom={10}
-            >
-              {/* You can add markers or other components here */}
-            </GoogleMap>
-          </LoadScript>
         </div>
-      </div>
-
+        </div>
       
       {/* FAQ Section */}
       <div className="mt-12">

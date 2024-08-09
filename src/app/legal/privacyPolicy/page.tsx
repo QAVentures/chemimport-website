@@ -11,7 +11,7 @@ const PrivacyPolicy: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md p-8">
           <Section title="1. Introduction">
             <p>
-              ChemImport ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy 
+              ChemImport (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy 
               explains how we collect, use, disclose, and safeguard your information when you visit our 
               website or use our services.
             </p>
@@ -43,7 +43,7 @@ const PrivacyPolicy: React.FC = () => {
             <ul className="list-disc pl-6 mt-2">
               <li>Process and fulfill your orders</li>
               <li>Communicate with you about your orders, account, or requests</li>
-              <li>Send you marketing communications (if you've opted in)</li>
+              <li>Send you marketing communications (if you&apos;ve opted in)</li>
               <li>Improve our website and services</li>
               <li>Comply with legal obligations</li>
             </ul>
@@ -90,14 +90,14 @@ const PrivacyPolicy: React.FC = () => {
           <Section title="9. Changes to This Privacy Policy">
             <p>
               We may update this Privacy Policy from time to time. We will notify you of any changes 
-              by posting the new Privacy Policy on this page and updating the "Last updated" date.
+              by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
             </p>
           </Section>
 
           <Section title="10. Contact Us">
             <p>
-              If you have any questions about this Privacy Policy, please contact us at 
-              <a href="mailto:privacy@chemimport.com" className="text-[#1E5C9B] hover:underline"> privacy@chemimport.com</a>.
+              If you have any questions about this Privacy Policy, please contact us at info@ksygroup.us
+              <a href="mailto:privacy@chemimport.com" className="text-[#1E5C9B] hover:underline">privacy@chemimport.com</a>.
             </p>
           </Section>
         </div>

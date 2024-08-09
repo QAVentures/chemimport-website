@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
 
 const CookiePolicy: React.FC = () => {
   return (
@@ -12,7 +11,7 @@ const CookiePolicy: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md p-8">
           <Section title="1. Introduction">
             <p>
-              This Cookie Policy ("Policy") is an integral part of the ChemImport website ("Site"), 
+              This Cookie Policy (&quot;Policy&quot;) is an integral part of the ChemImport website (&quot;Site&quot;), 
               which is owned and operated exclusively by KSY Group. This Policy outlines our practices 
               regarding the use of cookies and similar technologies on our Site. By accessing or using 
               our Site, you expressly consent to the use of cookies in accordance with this Policy.
@@ -96,17 +95,6 @@ const CookiePolicy: React.FC = () => {
               of Delaware, United States, without regard to its conflict of law provisions. Any disputes arising 
               under or in connection with this Policy shall be subject to the exclusive jurisdiction of the 
               courts located in Delaware.
-            </p>
-          </Section>
-
-          <Section title="10. Contact Us">
-            <p>
-              If you have any questions about our use of cookies, please contact us at 
-              <a href="mailto:privacy@chemimport.com" className="text-[#1E5C9B] hover:underline"> privacy@chemimport.com</a>.
-            </p>
-            <p className="mt-4">
-              <strong>All inquiries and communications regarding this Cookie Policy are handled exclusively 
-              by KSY Group or its authorized representatives.</strong>
             </p>
           </Section>
         </div>

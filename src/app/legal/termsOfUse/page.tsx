@@ -20,7 +20,7 @@ export default function TermsOfUse() {
         <div className="bg-white rounded-lg shadow-md p-8">
           <Section title="1. Acceptance of Terms">
             <p>
-              By accessing and using the ChemImport website (the "Site"), you accept and agree 
+              By accessing and using the ChemImport website (the &quot;Site&quot;), you accept and agree 
               to be bound by these Terms of Use. If you do not agree to these terms, please do 
               not use our Site.
             </p>
@@ -29,7 +29,7 @@ export default function TermsOfUse() {
           <Section title="2. Use of the Site">
             <p>
               You agree to use the Site only for lawful purposes and in a way that does not 
-              infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the Site.
+              infringe the rights of, restrict or inhibit anyone else&apos;s use and enjoyment of the Site.
             </p>
           </Section>
 
@@ -45,7 +45,7 @@ export default function TermsOfUse() {
 
           <Section title="4. Product Information">
             <p>
-              While we strive to provide accurate product information, it is provided "as is" 
+              While we strive to provide accurate product information, it is provided &quot;as is&quot; 
               without any representations or warranties, express or implied. ChemImport does not 
               warrant that product descriptions or other content of the site is accurate, complete, 
               reliable, current, or error-free.
@@ -69,7 +69,7 @@ export default function TermsOfUse() {
 
           <Section title="7. Disclaimer of Warranties">
             <p>
-              The Site is provided on an "as is" and "as available" basis without any warranties 
+              The Site is provided on an &quot;as is&quot; and &quot;as available&quot; basis without any warranties 
               of any kind, whether express or implied.
             </p>
           </Section>
@@ -99,7 +99,7 @@ export default function TermsOfUse() {
           <Section title="11. Changes to Terms">
             <p>
               ChemImport reserves the right to modify these Terms of Use at any time. We will 
-              post any changes on this page and update the "Last updated" date at the top of this page.
+              post any changes on this page and update the &quot;Last updated&quot; date at the top of this page.
             </p>
           </Section>
 

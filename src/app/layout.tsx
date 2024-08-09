@@ -1,16 +1,32 @@
 import { Analytics } from '@vercel/analytics/react';
-import { Roboto, Merriweather } from 'next/font/google';
+import { Manrope, Roboto, Merriweather } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot'; // Add this import
+import footer_shadcn from '@/components/footer_shadcn';
+import ChatBot from '@/components/ChatBot';
 import Script from 'next/script';
+import { cn } from '@/lib/utils';
 import '../styles/globals.css';
 
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] });
-const merriweather = Merriweather({ subsets: ['latin'], weight: ['400', '700'] });
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-heading',
+});
+
+const roboto = Roboto({ 
+  subsets: ['latin'], 
+  weight: ['400', '700'],
+  variable: '--font-body',
+});
+
+const merriweather = Merriweather({ 
+  subsets: ['latin'], 
+  weight: ['400', '700'] 
+});
 
 export const metadata = {
-  title: 'ChemImport - Your Trusted Chemical Importer',
+  title: 'KSY Group - Your Trusted Chemical Importer',
   description: 'Sourcing specialty chemicals from across the globe',
 };
 
@@ -35,11 +51,19 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${roboto.className} text-gray-800`}>
+      <body 
+        className={cn(
+          'antialiased text-gray-800',
+          manrope.variable,
+          roboto.variable
+        )}
+      >
         <Header />
         <main>{children}</main>
-        <Footer />
-        <ChatBot /> {/* Add this line */}
+        {/* <Footer /> */}
+        
+        <footer_shadcn />
+        <ChatBot />
         <Analytics />
       </body>
     </html>

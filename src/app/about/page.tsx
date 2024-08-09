@@ -38,14 +38,14 @@ const teamMembers = [
     twitter: "https://twitter.com/shivam",
     email: "shivam@ksygroup.com"
   },
-  {
-    name: "Yash Patel",
-    role: "Head of Analytics",
-    image: "/images/yash.jpeg",
-    linkedin: "https://www.linkedin.com/in/yash-patel-0b561b138/",
-    twitter: "https://twitter.com/yash",
-    email: "yash@ksygroup.com"
-  }
+  // {
+  //   name: "Yash Patel",
+  //   role: "Head of Analytics",
+  //   image: "/images/yash.jpeg",
+  //   linkedin: "https://www.linkedin.com/in/yash-patel-0b561b138/",
+  //   twitter: "https://twitter.com/yash",
+  //   email: "yash@ksygroup.com"
+  // }
 ];
 
 const AboutPage: React.FC = () => {

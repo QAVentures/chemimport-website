@@ -1,8 +1,8 @@
-// layout.tsx
 import { Analytics } from '@vercel/analytics/react';
 import { Roboto, Merriweather } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ChatBot from '@/components/ChatBot'; // Add this import
 import Script from 'next/script';
 import '../styles/globals.css';
 
@@ -39,6 +39,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <ChatBot /> {/* Add this line */}
         <Analytics />
       </body>
     </html>

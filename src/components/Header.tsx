@@ -16,20 +16,17 @@ const productCategories = [
 export default function Header() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
-  const handleProductClick = (category) => {
+  const handleProductClick = (category: string) => {
     router.push(`/products?category=${encodeURIComponent(category)}`);
     setIsOpen(false);
-    setIsProductsOpen(false);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
-        setIsProductsOpen(false);
       }
     };
 
@@ -38,50 +35,55 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-purple-400 text-white shadow-sm">
+    <header className="sticky top-0 z-50 bg-white shadow-sm py-0">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-[75px]">
+        <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center">
-            <Image src="/images/KSYLogo.png" alt="KSY Group" width={60} height={60} objectFit="contain" />
-            <span className="ml-2 text-xl font-bold">KSY Group</span>
+            <Image
+              src="/images/KSY LOGO FILE.png"
+              alt="KSY Logo"
+              width={110}
+              height={40}
+              className="object-contain"
+            />
           </Link>
           <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="text-white hover:text-purple-200">Home</Link>
+            <Link href="/" className="text-purple-700 hover:text-white hover:bg-purple-700 font-semibold text-lg">Home</Link>
             <div className="relative group">
               <button 
-                className="text-white hover:text-purple-200 flex items-center"
-                onClick={() => setIsProductsOpen(!isProductsOpen)}
+                className="text-purple-700 hover:text-white hover:bg-purple-700 font-semibold text-lg flex items-center"
+                onMouseEnter={() => dropdownRef.current?.classList.add('hover-contrast')}
+                onMouseLeave={() => dropdownRef.current?.classList.remove('hover-contrast')}
               >
                 Products
                 <svg className="ml-1 h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              {isProductsOpen && (
-                <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
-                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    {productCategories.map((category, index) => (
-                      <a
-                        key={index}
-                        href={`/products?category=${encodeURIComponent(category)}`}
-                        className="block px-4 py-2 text-sm text-purple-700 hover:bg-purple-100 hover:text-purple-900"
-                        role="menuitem"
-                        onClick={() => handleProductClick(category)}
-                      >
-                        {category}
-                      </a>
-                    ))}
-                  </div>
+              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out z-10 hover-contrast" ref={dropdownRef}>
+                <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                  {productCategories.map((category, index) => (
+                    <a
+                      key={index}
+                      href={`/products?category=${encodeURIComponent(category)}`}
+                      className="block px-4 py-2 text-sm hover:bg-purple-700 hover:text-white font-semibold text-lg"
+                      role="menuitem"
+                      onMouseEnter={() => dropdownRef.current?.classList.add('hover-contrast')}
+                      onMouseLeave={() => dropdownRef.current?.classList.remove('hover-contrast')}
+                    >
+                      {category}
+                    </a>
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
-            <Link href="/services" className="text-white hover:text-purple-200">Services</Link>
-            <Link href="/about" className="text-white hover:text-purple-200">About</Link>
-            <Link href="/newsletter" className="text-white hover:text-purple-200">Newsletter</Link>
-            <Link href="/contact" className="text-white hover:text-purple-200">Contact</Link>
+            <Link href="/services" className="text-purple-700 hover:text-white hover:bg-purple-700 font-semibold text-lg">Services</Link>
+            <Link href="/about" className="text-purple-700 hover:text-white hover:bg-purple-700 font-semibold text-lg">About</Link>
+            <Link href="/newsletter" className="text-purple-700 hover:text-white hover:bg-purple-700 font-semibold text-lg">Newsletter</Link>
+            <Link href="/contact" className="text-purple-700 hover:text-white hover:bg-purple-700 font-semibold text-lg">Contact</Link>
           </nav>
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-white hover:text-purple-200">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-purple-700 hover:text-white font-semibold text-lg">
               <svg className="h-6 w-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
@@ -90,41 +92,41 @@ export default function Header() {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden" ref={dropdownRef}>
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-purple-500">
-            <Link href="/" className="block text-white hover:bg-purple-600 px-3 py-2" onClick={() => setIsOpen(false)}>Home</Link>
+        <div className="md:hidden">
+          <div className="px-2 pt-0 pb-3 space-y-1 sm:px-3">
+            <Link href="/" className="block text-purple-700 hover:text-white hover:bg-purple-700 px-3 py-2 font-semibold text-lg">Home</Link>
             <div className="relative">
               <button 
-                onClick={() => setIsProductsOpen(!isProductsOpen)} 
-                className="text-white hover:bg-purple-600 px-3 py-2 w-full text-left flex justify-between items-center"
+                onClick={() => setIsOpen(!isOpen)} 
+                className="text-purple-700 hover:text-white px-3 py-2 w-full text-left flex justify-between items-center font-semibold text-lg"
               >
                 Products
                 <svg className="h-4 w-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                   <path d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              {isProductsOpen && (
-                <div className="px-4 py-2 bg-purple-600">
+              {isOpen && (
+                <div className="px-4 py-2">
                   {productCategories.map((category, index) => (
-                    <a
+                    <Link 
                       key={index} 
                       href={`/products?category=${encodeURIComponent(category)}`}
-                      className="block text-sm text-white hover:bg-purple-700 py-1"
-                      onClick={() => handleProductClick(category)}
+                      className="block text-sm text-purple-700 hover:bg-purple-700 hover:text-white py-1 font-semibold text-lg"
                     >
                       {category}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
-            <Link href="/services" className="block text-white hover:bg-purple-600 px-3 py-2" onClick={() => setIsOpen(false)}>Services</Link>
-            <Link href="/about" className="block text-white hover:bg-purple-600 px-3 py-2" onClick={() => setIsOpen(false)}>About</Link>
-            <Link href="/newsletter" className="block text-white hover:bg-purple-600 px-3 py-2" onClick={() => setIsOpen(false)}>Newsletter</Link>
-            <Link href="/contact" className="block text-white hover:bg-purple-600 px-3 py-2" onClick={() => setIsOpen(false)}>Contact</Link>
+            <Link href="/services" className="block text-purple-700 hover:text-white hover:bg-purple-700 px-3 py-2 font-semibold text-lg">Services</Link>
+            <Link href="/about" className="block text-purple-700 hover:text-white hover:bg-purple-700 px-3 py-2 font-semibold text-lg">About</Link>
+            <Link href="/newsletter" className="block text-purple-700 hover:text-white hover:bg-purple-700 px-3 py-2 font-semibold text-lg">Newsletter</Link>
+            <Link href="/contact" className="block text-purple-700 hover:text-white hover:bg-purple-700 px-3 py-2 font-semibold text-lg">Contact</Link>
           </div>
         </div>
       )}
     </header>
   );
 }
+

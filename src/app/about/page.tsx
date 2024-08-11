@@ -57,11 +57,14 @@ const AboutPage: React.FC = () => {
         <div>
         <h2 className="text-3xl font-semibold mb-6">Our Story</h2>
         <p className="mb-4 text-lg">
-          KSY Group LLC was established amid the global disruptions of the 2020 pandemic, emerging as a pivotal player in the chemical distribution sector. As the world faced unprecedented supply chain challenges, our founders recognized not merely obstacles but opportunities to redefine the landscape of chemical distribution on a global scale.
+        KSY Group LLC was established amid the global disruptions of the 2020 pandemic, emerging as a pivotal player in the chemical distribution sector. As the world faced unprecedented supply chain challenges, our founders recognized not merely obstacles but opportunities to redefine the landscape of chemical distribution on a global scale.
+        </p>
+        <p className="mb-4 text-lg">
+        The Suez Canal blockage in 2021 further underscored the necessity for a more resilient, adaptable, and innovative approach to chemical sourcing and distribution. In response, KSY Group LLC positioned itself as a forward-thinking leader equipped to address the evolving demands of the industry.
         </p>
         <p className="mb-4 text-lg">
           The subsequent Suez Canal blockage further underscored the necessity for a more resilient, adaptable, and innovative approach to chemical sourcing and distribution. KSY Group LLC responded to this imperative, positioning itself as a forward-thinking leader equipped to address the evolving demands of the industry.
-        </p>
+        </p> 
         <p className="text-lg">
           At present, we stand as a testament to resilience, expertise, and unwavering dedication to quality. Our operations are concentrated on sourcing from India and importing to the United States. However, our ambitions are far-reaching. We are committed to expanding our product portfolio and extending our geographic reach, with the goal of establishing a truly global presence in the chemical distribution arena.
         </p>
@@ -69,7 +72,7 @@ const AboutPage: React.FC = () => {
           Looking forward, we anticipate enhancing our offerings by incorporating a broader array of products and extending our operations to additional countries. Our commitment to adaptation and innovation remains steadfast, ensuring we continue to meet the dynamic needs of our international clientele.
         </p>
         </div>
-        <div className="relative h-96 md:h-auto">
+        {/* <div className="relative h-96 md:h-auto">
           <Image 
             src="/images/global-chemical-distribution.jpg" 
             alt="Global Chemical Distribution" 
@@ -77,7 +80,7 @@ const AboutPage: React.FC = () => {
             objectFit="cover" 
             className="rounded-lg shadow-xl"
           />
-        </div>
+        </div> */}
       </div>
       
       <h2 className="text-3xl font-semibold mb-8 text-center">Our Core Values</h2>

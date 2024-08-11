@@ -145,21 +145,12 @@ export default function ContactPage() {
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-          <p className="mb-2"><strong>Address:</strong> 123 Chemical Lane, Molecule City, CH 12345</p>
-          <p className="mb-2"><strong>Phone:</strong> (123) 456-7890</p>
-          <p className="mb-2"><strong>Email:</strong> info@chemimport.com</p>
+          <p className="mb-2"><strong>Address:</strong> 123 Main Street, Anytown, USA</p>
+          <p className="mb-2"><strong>Phone:</strong> (669) 295-3313 </p> 
+          <p className="mb-2"><strong>Email:</strong> info@ksygroup.com</p>
           <p className="mb-4"><strong>Business Hours:</strong> Monday - Friday: 9am - 5pm</p>
           
-          {/* Google Map */}
-          <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-            <GoogleMap
-              mapContainerStyle={mapContainerStyle}
-              center={center}
-              zoom={10}
-            >
-              {/* You can add markers or other components here */}
-            </GoogleMap>
-          </LoadScript>
+          
         </div>
       </div>
 
@@ -238,7 +229,7 @@ export default function ContactPage() {
             <h3 className="font-bold text-lg mb-2">Whats the best way to reach us?</h3>
             <p>We value clear and efficient communication with our customers. The most effective ways to reach us are:</p>
             <ul className="list-disc list-inside mt-2">
-              <li>Phone: For immediate assistance, call us at (123) 456-7890 during business hours</li>
+              <li>Phone: For immediate assistance, call us at (669) 295-3313 during business hours</li>
               <li>Email: For detailed inquiries or documentation requests, email us at info@chemimport.com</li>
               <li>Contact Form: Use the form on this page for general inquiries or product-specific questions</li>
             </ul>
@@ -262,3 +253,13 @@ export default function ContactPage() {
   );
 }
 
+// Google Map
+//           <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+//             <GoogleMap
+//               mapContainerStyle={mapContainerStyle}
+//               center={center}
+//               zoom={10}
+//             >
+//               {/* You can add markers or other components here */}
+//             </GoogleMap>
+//           </LoadScript>

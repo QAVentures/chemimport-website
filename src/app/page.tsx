@@ -4,6 +4,7 @@ import React, { useState , useRef , useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+// import HeroComponent from '@/components/Hero'
 
 const productCategories = [
   { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/organic-chemicals.jpeg" },
@@ -84,6 +85,7 @@ export default function Home() {
   };return (
     
     <div className="flex flex-col min-h-screen">
+      {/* <HeroComponent /> */}
       {/* Hero Section */}
     <section className="hero bg-base-200 py-10 md:py-20">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -97,6 +99,7 @@ export default function Home() {
         </div>
       </div>
     </section>
+
 
       {/* Updated Product Categories Section */}
       <section className="bg-gray-200 py-10 md:py-20">
@@ -138,7 +141,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 {/* Services Section */}
 {/* <section className="bg-base-200 py-10 md:py-20">
   <div className="container mx-auto px-4">

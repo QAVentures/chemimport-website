@@ -60,6 +60,26 @@ const TermsAndConditions = () => {
               </ul>
             </nav>
           </div>
+    <div className="bg-[#F5F7FA] min-h-screen">
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold text-[#1E5C9B] mb-8 font-roboto-slab">ChemImport Terms of Use</h1>
+        <p className="text-lg text-gray-600 mb-8">Last updated: August 6, 2024</p>
+
+        <div className="bg-white rounded-lg shadow-md p-8">
+          <Section title="1. Acceptance of Terms">
+            <p>
+              By accessing and using the ChemImport website (the &quot;Site&quot;), you accept and agree 
+              to be bound by these Terms of Use. If you do not agree to these terms, please do 
+              not use our Site.
+            </p>
+          </Section>
+
+          <Section title="2. Use of the Site">
+            <p>
+              You agree to use the Site only for lawful purposes and in a way that does not 
+              infringe the rights of, restrict or inhibit anyone else&apos;s use and enjoyment of the Site.
+            </p>
+          </Section>
 
           <section className="w-full md:w-3/4">
             <div className="max-w-3xl">

@@ -152,8 +152,7 @@ export default function ContactPage() {
           
           
         </div>
-      </div>
-
+        </div>
       
       {/* FAQ Section */}
       <div className="mt-12">

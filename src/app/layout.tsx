@@ -10,7 +10,7 @@ const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] });
 const merriweather = Merriweather({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata = {
-  title: 'ChemImport - Your Trusted Chemical Importer',
+  title: 'KSY Group - Your Trusted Chemical Importer',
   description: 'Sourcing specialty chemicals from across the globe',
 };
 

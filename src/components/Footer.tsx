@@ -1,10 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-<<<<<<< HEAD
 // import PrivacyPolicy from '@/components/PrivacyPolicy';
-=======
->>>>>>> 13d51cd4033c8e7e91045ec8be0ac9c06421463c
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
 const productCategories = [
@@ -59,23 +56,23 @@ export default function Footer() {
       </div>
       <div className="footer container mx-auto mt-10 pt-10 border-t border-primary-content flex flex-col md:flex-row justify-between items-center">
         <div className="text-left">
-          <p className="mb-1">123 Chemical Lane, Molecule City, CH 12345</p>
+          <p className="mb-1">PO Box 76180, Fort Worth, Texas</p>
           <p className="mb-1">Email: <a href="mailto:info@ksygroup.com" className="hover:text-primary">info@ksygroup.com</a> | Phone: <a href="tel:+16692437152" className="hover:text-primary">(669) 295-3313</a></p>
           <p className="text-sm">&copy; 2024 KSY Group LLC. All rights reserved.</p>
         </div>
         <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors duration-400">
+          {/* <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors duration-400">
             <FaFacebookF size={46} />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors duration-400">
+          </a> */}
+          {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors duration-400">
             <FaTwitter size={46} />
-          </a>
+          </a> */}
           <a href="https://www.linkedin.com/company/ksy-group" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-700 transition-colors duration-400">
             <FaLinkedinIn size={46} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transition-colors duration-400">
+          {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-500 transition-colors duration-400">
             <FaInstagram size={50} />
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>

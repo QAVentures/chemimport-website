@@ -149,11 +149,6 @@ export default function ContactPage() {
           <p className="mb-2"><strong>Phone:</strong> (669) 295-3313 </p> 
           <p className="mb-2"><strong>Email:</strong> info@ksygroup.com</p>
           <p className="mb-4"><strong>Business Hours:</strong> Monday - Friday: 9am - 5pm</p>
-<<<<<<< HEAD
-=======
-          
-          
->>>>>>> 13d51cd4033c8e7e91045ec8be0ac9c06421463c
         </div>
         </div>
       

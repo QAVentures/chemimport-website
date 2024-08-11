@@ -1,25 +1,48 @@
-module.exports = {
+import type { Config } from "tailwindcss"
+
+const config = {
+  darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+	],
+  prefix: "",
   theme: {
     extend: {
       colors: {
-        primary: '#6B46C1', // Purple
-        secondary: '#9F7AEA', // Light Purple
-        accent: '#ED64A6', // Pink
-        neutral: '#1F2937', // Dark Gray
-      },
-      fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
+        primary: '#6a1b9a',   // Deep Purple
+        secondary: '#d81b60', // Vibrant Red/Pink
+        accent: '#9c27b0',    // Lighter Purple/Pink
+        neutral: '#333333',   // Dark Gray
+        'base-100': '#ffffff',// White
+        info: '#2094f3',      // Soft Blue/Cyan
+        success: '#4caf50',   // Green
+        warning: '#ff9800',   // Warm Yellow/Orange
+        error: '#f44336',     // Rich Red
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require('daisyui'),require("tailwindcss-animate")],
   daisyui: {
-    themes: ["light"], // You can change this to your preferred theme
+    themes: [
+      {
+        mytheme: {
+          primary: '#6a1b9a',   // Deep Purple
+          secondary: '#d81b60', // Vibrant Red/Pink
+          accent: '#9c27b0',    // Lighter Purple/Pink
+          neutral: '#333333',   // Dark Gray
+          'base-100': '#ffffff',// White
+          info: '#2094f3',      // Soft Blue/Cyan
+          success: '#4caf50',   // Green
+          warning: '#ff9800',   // Warm Yellow/Orange
+          error: '#f44336',     // Rich Red
+        },
+      },
+    ],
   },
-}
+  // plugins: [],
+} satisfies Config
+
+export default config

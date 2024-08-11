@@ -4,7 +4,10 @@ import React, { useState , useRef , useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-// import HeroComponent from '@/components/Hero'
+import HeroComponent from '@/components/Hero'
+import ProductSection from '@/components/Home_Products'
+import ServicesPage from '@/components/Home_Services';
+import NewsletterSignup from '@/components/newslettersignup';
 
 const productCategories = [
   { name: "Organic Chemicals", subtext: "Carbon-based compounds Bulk & Fine Chemicals", image: "/images/organic-chemicals.jpeg" },
@@ -87,7 +90,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* <HeroComponent /> */}
       {/* Hero Section */}
-    <section className="hero bg-base-200 py-10 md:py-20">
+      <HeroComponent/>
+    {/* <section className="hero bg-base-200 py-10 md:py-20">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <Image src="/images/hero-image.jpg" alt="Chemical lab" width={600} height={400} className="max-w-sm rounded-lg shadow-2xl" />
         <div>
@@ -98,11 +102,12 @@ export default function Home() {
           <Link href="/products" className="btn bg-primary text-white hover:bg-primary-dark">Explore Our Products</Link>
         </div>
       </div>
-    </section>
+    </section> */}
 
 
       {/* Updated Product Categories Section */}
-      <section className="bg-gray-200 py-10 md:py-20">
+      <ProductSection />
+      {/* <section className="bg-gray-200 py-10 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-primary mb-8">Our Chemical Portfolio</h2>
           <div 
@@ -140,8 +145,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 {/* Services Section */}
+<ServicesPage />
 {/* <section className="bg-base-200 py-10 md:py-20">
   <div className="container mx-auto px-4">
     <h2 className="text-3xl font-bold text-center mb-8">Our Comprehensive Services</h2>
@@ -214,8 +220,15 @@ export default function Home() {
   </div>
 </section>
 
+<NewsletterSignup
+        handleSubscribe={handleSubscribe}
+        email={email}
+        setEmail={setEmail}
+        subscriptionStatus={subscriptionStatus}
+        isLoading={isLoading}
+      />
       {/* Newsletter Signup */}
-      <section className="bg-primary text-white py-10 md:py-20">
+      {/* <section className="bg-primary text-white py-10 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Stay Informed</h2>
           <p className="text-xl mb-8 text-center">Subscribe to our newsletter for the latest chemical industry updates and exclusive offers.</p>
@@ -249,7 +262,7 @@ export default function Home() {
             </form>
           )}
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
